@@ -1,0 +1,161 @@
+.timeline {
+  display: grid;
+  gap: 8px;
+}
+
+.timeline__head h2 {
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.timeline__head p {
+  color: var(--ink-2);
+  font-size: 0.875rem;
+}
+
+.timeline__track {
+  position: relative;
+  height: 72px;
+  margin-top: 4px;
+  border-bottom: 2px solid var(--rule-strong);
+}
+
+/* The part of D-1 already elapsed at the cutoff. */
+.timeline__past {
+  position: absolute;
+  inset: auto auto 0 0;
+  height: 100%;
+  background: linear-gradient(to top, color-mix(in srgb, var(--ink) 10%, transparent), transparent);
+  pointer-events: none;
+}
+
+.timeline__run {
+  position: absolute;
+  bottom: -6px;
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  /* Above the cutoff line, so a run at or next to the cutoff stays readable. */
+  z-index: 1;
+}
+
+.timeline__run-label {
+  font-size: 0.75rem;
+  font-stretch: 80%;
+  color: var(--ink-2);
+  /* Halo in the background colour: the cutoff line passes behind the text, not through it. */
+  text-shadow:
+    0 0 3px var(--bg),
+    0 0 3px var(--bg),
+    0 0 2px var(--bg);
+}
+
+.timeline__run--used .timeline__run-label {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.timeline__run--later .timeline__run-label {
+  color: var(--ink-3);
+}
+
+.timeline__run-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--ink-2);
+  background: var(--bg);
+  vertical-align: -1px;
+}
+
+/* The run in use takes the forecast colour, tying it to the forecast line in the charts. */
+.timeline__run--used .timeline__run-dot,
+.timeline__run-dot--used {
+  border-color: var(--series-forecast);
+  background: var(--series-forecast);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--series-forecast) 35%, transparent);
+}
+
+.timeline__run--later .timeline__run-dot,
+.timeline__run-dot--later {
+  border-color: var(--rule-strong);
+  border-style: dashed;
+}
+
+.timeline__cutoff {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--ink);
+  transform: translateX(-1px);
+  pointer-events: none;
+}
+
+.timeline__cutoff span {
+  position: absolute;
+  top: -2px;
+  left: 6px;
+  padding: 0 6px;
+  border-radius: var(--radius-control);
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 0.8125rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+/* Invisible range input over the whole strip: native keyboard + pointer handling. */
+.timeline__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+}
+
+.timeline__track:has(.timeline__input:focus-visible) {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.timeline__hours {
+  position: relative;
+  height: 18px;
+  font-size: 0.75rem;
+  color: var(--ink-3);
+}
+
+.timeline__hours span {
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.timeline__hours span:first-child {
+  transform: none;
+}
+
+.timeline__hours span:last-child {
+  transform: translateX(-100%);
+}
+
+.timeline__key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+}
+
+.timeline__key .timeline__run-dot {
+  margin-right: 4px;
+}

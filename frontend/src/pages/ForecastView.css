@@ -1,0 +1,147 @@
+.fv {
+  display: grid;
+  gap: 32px;
+}
+
+.fv__controls {
+  display: grid;
+  grid-template-columns: minmax(200px, auto) minmax(0, 1fr);
+  gap: 24px 48px;
+  align-items: start;
+  padding: 24px 0 28px;
+}
+
+.fv__day {
+  display: grid;
+  gap: 8px;
+}
+
+.fv__day label {
+  font-weight: 650;
+}
+
+.fv__day-row {
+  display: flex;
+  gap: 4px;
+}
+
+.fv__day-row button,
+.fv__day-row input {
+  height: 40px;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-control);
+  background: var(--panel);
+}
+
+.fv__day-row button {
+  width: 40px;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.fv__day-row button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.fv__day-row input {
+  padding: 0 8px;
+}
+
+.fv__error {
+  padding: 12px 16px;
+  border-left: 3px solid var(--series-forecast);
+  background: var(--panel);
+}
+
+.fv__body {
+  display: grid;
+  gap: 24px;
+  transition: opacity 120ms;
+}
+
+.fv__body--loading {
+  opacity: 0.6;
+}
+
+.fv__headline {
+  display: grid;
+  gap: 6px;
+  max-width: 880px;
+}
+
+.fv__date {
+  color: var(--ink-2);
+  font-weight: 600;
+}
+
+.fv__headline h2 {
+  font-size: clamp(2rem, 4.6vw, 3.25rem);
+  font-weight: 760;
+  font-stretch: 66%;
+  line-height: 1.02;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+
+.fv__sub {
+  color: var(--ink-2);
+  font-size: 1.0625rem;
+}
+
+.fv__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 32px;
+  align-items: start;
+}
+
+.fv__charts {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.fv__summary dl {
+  display: grid;
+  gap: 20px;
+  margin: 0;
+  padding-left: 20px;
+  border-left: 2px solid var(--rule);
+}
+
+.fv__summary dt {
+  color: var(--ink-2);
+  font-size: 0.875rem;
+}
+
+.fv__summary dd {
+  display: grid;
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 740;
+  font-stretch: 68%;
+  line-height: 1.15;
+}
+
+.fv__summary small {
+  color: var(--ink-3);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  font-stretch: 100%;
+}
+
+@media (max-width: 860px) {
+  .fv__controls,
+  .fv__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fv__summary dl {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    padding: 16px 0 0;
+    border-left: 0;
+    border-top: 2px solid var(--rule);
+  }
+}

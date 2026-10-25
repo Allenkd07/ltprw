@@ -1,0 +1,128 @@
+/* Design tokens. Series colours validated with the dataviz palette checker (light + dark).
+   "Deck" tokens colour the navy band that holds the decision controls; inside it, .deck
+   remaps the ordinary tokens so components need no deck-specific styles. */
+:root {
+  color-scheme: light;
+  --bg: #e8eef1;
+  --panel: #ffffff;
+  --ink: #0e2233;
+  --ink-2: #44596a;
+  --ink-3: #5b6e7e;
+  --rule: #d2dce2;
+  --rule-strong: #afbdc7;
+  --series-actual: #2a78d6;
+  --series-forecast: #eb6834;
+  --bar-error: #5f7384;
+  --focus: #2a78d6;
+
+  --deck: #0e2b42;
+  --deck-panel: #18405f;
+  --deck-ink: #f3f7fa;
+  --deck-ink-2: #bccbd7;
+  --deck-ink-3: #8ea4b6;
+  --deck-rule: #24496a;
+  --deck-rule-strong: #4d6e8a;
+
+  --font: 'Archivo', system-ui, sans-serif;
+  --radius-control: 6px;
+  --radius-panel: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #0b151d;
+    --panel: #111f2a;
+    --ink: #e5ecf1;
+    --ink-2: #a2b2be;
+    --ink-3: #8394a1;
+    --rule: #1f2f3b;
+    --rule-strong: #364856;
+    --series-actual: #3987e5;
+    --series-forecast: #d95926;
+    --bar-error: #8394a1;
+    --focus: #3987e5;
+    --deck: #102a3e;
+    --deck-panel: #1a3a54;
+    --deck-rule: #24455f;
+    --deck-rule-strong: #4a6a84;
+  }
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0b151d;
+  --panel: #111f2a;
+  --ink: #e5ecf1;
+  --ink-2: #a2b2be;
+  --ink-3: #8394a1;
+  --rule: #1f2f3b;
+  --rule-strong: #364856;
+  --series-actual: #3987e5;
+  --series-forecast: #d95926;
+  --bar-error: #8394a1;
+  --focus: #3987e5;
+  --deck: #102a3e;
+  --deck-panel: #1a3a54;
+  --deck-rule: #24455f;
+  --deck-rule-strong: #4a6a84;
+}
+
+/* Full-bleed navy band: the background extends to the viewport edges without
+   affecting layout or causing horizontal scroll. */
+.deck {
+  color-scheme: dark;
+  --bg: var(--deck);
+  --panel: var(--deck-panel);
+  --ink: var(--deck-ink);
+  --ink-2: var(--deck-ink-2);
+  --ink-3: var(--deck-ink-3);
+  --rule: var(--deck-rule);
+  --rule-strong: var(--deck-rule-strong);
+  --focus: var(--deck-ink);
+  background: var(--deck);
+  color: var(--ink);
+  box-shadow: 0 0 0 100vmax var(--deck);
+  clip-path: inset(0 -100vmax);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

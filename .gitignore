@@ -1,0 +1,32 @@
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+backend/static/
+
+# Node
+node_modules/
+frontend/dist/
+
+# Local only
+*.docx
+sample_data/
+.env
+
+# Vercel
+.vercel/
+
+# Safety nets
+.env.*
+*.log
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.coverage
+htmlcov/
+.claude/
+
+# Private notes (not for the public repo)
+docs/

@@ -1,0 +1,119 @@
+.av__controls {
+  padding: 24px 0 28px;
+}
+
+.av__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px 32px;
+  margin: 0;
+  padding: 20px 0;
+  border-block: 1px solid var(--rule);
+}
+
+.av__stats dt {
+  color: var(--ink-2);
+  font-size: 0.875rem;
+}
+
+.av__stats dd {
+  display: grid;
+  margin: 0;
+  font-size: 2.25rem;
+  font-weight: 760;
+  font-stretch: 66%;
+  line-height: 1.1;
+  font-variant-numeric: proportional-nums;
+}
+
+.av__stats small {
+  color: var(--ink-3);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  font-stretch: 100%;
+}
+
+/* Each chapter: a question and its answer on the left, the evidence on the right. */
+.av__chapter {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+  gap: 20px 40px;
+  align-items: start;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+}
+
+/* The key figures already end with a rule. */
+.av__stats + .av__chapter {
+  padding-top: 8px;
+  border-top: 0;
+}
+
+.av__lede {
+  display: grid;
+  gap: 10px;
+  position: sticky;
+  top: 24px;
+}
+
+.av__lede h3 {
+  font-size: 1.625rem;
+  font-weight: 740;
+  font-stretch: 70%;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.av__lede p {
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+  max-width: 38ch;
+}
+
+.av__lede .av__note {
+  color: var(--ink-3);
+  font-size: 0.8125rem;
+}
+
+.av__figure {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.av__pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.chart__plot--clickable .recharts-bar-rectangle {
+  cursor: pointer;
+}
+
+.av__link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--focus);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+@media (max-width: 1080px) {
+  .av__pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .av__chapter {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .av__lede {
+    position: static;
+  }
+}

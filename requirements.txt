@@ -1,0 +1,4 @@
+# Runtime dependencies for the Vercel Python function (api/index.py).
+# Local development and Docker use backend/requirements.txt instead.
+fastapi>=0.115
+pandas>=2.2

@@ -1,0 +1,94 @@
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px 64px;
+}
+
+.app__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px 32px;
+  padding: 28px 0 24px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.app__brand h1 {
+  font-size: 1.75rem;
+  font-weight: 780;
+  font-stretch: 68%;
+  line-height: 1.1;
+  letter-spacing: -0.005em;
+}
+
+.app__brand p {
+  margin-top: 4px;
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+}
+
+.app__tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.app__nav {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--rule);
+  border-radius: calc(var(--radius-control) + 4px);
+}
+
+.app__nav button {
+  padding: 6px 14px;
+  border: 0;
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--ink-2);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.app__nav button:hover {
+  color: var(--ink);
+}
+
+.app__nav button[aria-pressed='true'] {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.app__theme {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--rule);
+  border-radius: calc(var(--radius-control) + 4px);
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+
+.app__theme:hover {
+  color: var(--ink);
+  border-color: var(--rule-strong);
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 0 16px 48px;
+  }
+
+  .app__header {
+    padding-top: 20px;
+  }
+
+  .app__tools {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

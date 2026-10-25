@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Wind turbine on the deck navy; the orange hub is the forecast colour. -->
+  <rect width="32" height="32" rx="7" fill="#0e2b42"/>
+  <path d="M14.6 14h2.8l.9 15h-4.6z" fill="#bccbd7"/>
+  <g fill="#f3f7fa">
+    <path id="blade" d="M16 14c-2.6-3.4-2.6-8.4 0-11.4 2.6 3 2.6 8 0 11.4z"/>
+    <use href="#blade" transform="rotate(120 16 14)"/>
+    <use href="#blade" transform="rotate(240 16 14)"/>
+  </g>
+  <circle cx="16" cy="14" r="2.8" fill="#eb6834"/>
+</svg>
