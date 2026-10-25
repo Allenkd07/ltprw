@@ -2,7 +2,7 @@
 
 Web app for a UK utility's day-ahead trading team. It shows the national wind generation forecast available at the day-ahead decision time, compares it with actual generation, and measures forecast accuracy, for purchase decisions made in January 2026.
 
-**Live app:** _TBD_
+**Live app:** https://ltprw.vercel.app/
 
 ## Repository layout
 
