@@ -56,13 +56,52 @@
 }
 
 .fv__body {
+  position: relative;
   display: grid;
   gap: 24px;
   transition: opacity 120ms;
 }
 
+/* Refetching (new day or cutoff): dim the old result and run a thin bar along the top.
+   Both wait a beat so a fast response doesn't flicker. */
 .fv__body--loading {
   opacity: 0.6;
+  transition-delay: 150ms;
+}
+
+.fv__body--loading::before {
+  content: '';
+  position: absolute;
+  inset: -14px 0 auto;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--focus), transparent) 0 0 / 40% 100% no-repeat;
+  animation:
+    fv-progress-in 1ms 150ms both,
+    fv-progress 1.1s ease-in-out 150ms infinite;
+}
+
+@keyframes fv-progress-in {
+  from {
+    visibility: hidden;
+  }
+}
+
+@keyframes fv-progress {
+  from {
+    background-position: -40% 0;
+  }
+  to {
+    background-position: 140% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fv__body--loading::before {
+    animation: fv-progress-in 1ms 150ms both;
+    background-size: 100% 100%;
+    opacity: 0.5;
+  }
 }
 
 .fv__headline {

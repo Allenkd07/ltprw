@@ -1,0 +1,67 @@
+.skel {
+  display: block;
+  border-radius: 4px;
+  background: linear-gradient(
+      90deg,
+      transparent 0%,
+      color-mix(in srgb, var(--panel) 55%, transparent) 50%,
+      transparent 100%
+    )
+    0 0 / 200% 100% no-repeat,
+    color-mix(in srgb, var(--ink) 9%, transparent);
+  animation: skel-shimmer 1.4s ease-in-out infinite;
+}
+
+/* Fades in after a beat, so a fast (cached) response never flashes placeholders. */
+.skel-wrap {
+  animation: skel-in 200ms ease-out 150ms both;
+}
+
+.skel-stack,
+.skel-dl > div {
+  display: grid;
+  gap: 8px;
+}
+
+.skel-dl {
+  margin: 0;
+}
+
+.skel-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@keyframes skel-shimmer {
+  from {
+    background-position: 150% 0, 0 0;
+  }
+  to {
+    background-position: -50% 0, 0 0;
+  }
+}
+
+@keyframes skel-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* No shimmer: a frozen highlight would just look like an uneven fill. */
+@media (prefers-reduced-motion: reduce) {
+  .skel,
+  .skel-wrap {
+    animation: none;
+  }
+
+  .skel {
+    background: color-mix(in srgb, var(--ink) 9%, transparent);
+  }
+}

@@ -4,6 +4,7 @@ import { BarPanel, type BarRow } from '../components/BarPanel'
 import { type Column, DataTable, TablePanel } from '../components/DataTable'
 import { DecisionTimeline } from '../components/DecisionTimeline'
 import { ErrorHistogram } from '../components/ErrorHistogram'
+import { AccuracySkeleton } from '../components/Skeleton'
 import { type PanelView, ViewSwitch } from '../components/ViewSwitch'
 import { addDays, clockToMinutes, formatDay, formatMW, formatSignedMW, minutesToClock } from '../lib/format'
 import './ForecastView.css'
@@ -224,6 +225,8 @@ export function AccuracyView({ meta, cutoffMinutes, onCutoffChange, onOpenDay }:
           Couldn’t load the accuracy figures: {error}. Check that the backend is running on port 8000.
         </p>
       )}
+
+      {!data && !error && <AccuracySkeleton />}
 
       {data && s && text && (
         <div className={`fv__body${loading ? ' fv__body--loading' : ''}`} aria-busy={loading}>

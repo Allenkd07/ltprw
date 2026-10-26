@@ -4,6 +4,7 @@ import { type Column, DataTable, TablePanel } from '../components/DataTable'
 import { DecisionTimeline } from '../components/DecisionTimeline'
 import { ErrorChart } from '../components/ErrorChart'
 import { ForecastChart } from '../components/ForecastChart'
+import { ForecastSkeleton } from '../components/Skeleton'
 import { type PanelView, ViewSwitch } from '../components/ViewSwitch'
 import {
   addDays,
@@ -131,6 +132,8 @@ export function ForecastView({ meta, day, onDayChange: setDay, cutoffMinutes, on
           Couldn’t load the forecast: {error}. Check that the backend is running on port 8000.
         </p>
       )}
+
+      {!data && !error && <ForecastSkeleton />}
 
       {data && text && (
         <div className={`fv__body${loading ? ' fv__body--loading' : ''}`} aria-busy={loading}>

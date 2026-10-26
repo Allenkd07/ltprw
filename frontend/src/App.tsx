@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getMeta, type Meta } from './api/client'
+import { ViewSkeleton } from './components/Skeleton'
 import { clockToMinutes } from './lib/format'
 import { AccuracyView } from './pages/AccuracyView'
 import { ForecastView } from './pages/ForecastView'
@@ -105,6 +106,7 @@ function App() {
             <code>backend/</code>.
           </p>
         )}
+        {!meta && !error && <ViewSkeleton view={view} />}
         {meta && day && cutoffMinutes != null && view === 'forecast' && (
           <ForecastView
             meta={meta}
